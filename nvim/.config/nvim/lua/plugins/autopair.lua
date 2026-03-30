@@ -12,6 +12,4 @@ return {
 			rule("$", "$", "typst"):with_pair(cond.not_after_regex(".")),
 		})
 	end,
-	-- use opts = {} for passing setup options
-	-- this is equivalent to setup({}) function
 }

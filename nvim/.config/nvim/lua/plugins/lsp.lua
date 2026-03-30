@@ -35,8 +35,8 @@ return {
 
 		vim.lsp.config("tinymist", {
 			settings = {
-				exportPdf = "onType", -- recompile on every keystroke
-				outputPath = "$root/out/$name", -- where the PDF goes
+				exportPdf = "onType", 
+				outputPath = "$root/out/$name", 
 				previewFeature = "enable",
 			},
 		})
