@@ -32,10 +32,6 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-cursor {
-    xcursor-size 32
-}
-
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
@@ -46,6 +42,11 @@ output "DP-1" {
     mode "2560x1440@164.835"
     position x=0 y=0
     scale 1.2
+}
+
+cursor {
+	xcursor-theme "Bibata-Modern-Classic"
+	xcursor-size 24
 }
 
 layout {
@@ -194,6 +195,7 @@ layout {
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
+spawn-sh-at-startup "qs"
 spawn-sh-at-startup "swaybg -i ~/Downloads/nvim.png"
 
 hotkey-overlay {

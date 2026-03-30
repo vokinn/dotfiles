@@ -25,7 +25,7 @@ PanelWindow {
 	property string txSpeed: "0 KB/s"
 
 	readonly property string bg: "#1d2021"  
-	readonly property string fg: "#ebd"
+	readonly property string fg: "#ebdbb2"
 	readonly property string yellow: "#d79921" 
 	readonly property string aqua: "#83a598" 
 	readonly property string green: "#b8bb26"
