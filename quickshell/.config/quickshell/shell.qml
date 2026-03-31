@@ -1,8 +1,10 @@
+//@ pragma UseQApplication
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Services.SystemTray
 
 PanelWindow {
 	id: root
@@ -110,6 +112,7 @@ PanelWindow {
 	}
 
 	RowLayout {
+		id: panelRow
 		anchors.fill: parent
 		anchors.leftMargin: 24
 		anchors.rightMargin: 24
@@ -138,6 +141,63 @@ PanelWindow {
 		}
 
 		Item { Layout.fillWidth: true }
+			Repeater {
+				model: SystemTray.items 
+				delegate: Item {
+					id: trayItem
+					required property SystemTrayItem modelData
+					width: 20
+					height: 20
+
+					Image {
+						anchors.centerIn: parent
+						source: modelData.icon
+						width: 16
+						height: 16
+						smooth: true
+
+						MouseArea {
+							anchors.fill: parent
+							acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
+							onWheel: wheel => modelData.scroll(
+								wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.angleDelta.x,
+								wheel.angleDelta.y === 0
+							)
+							onClicked: mouse => {
+								if (mouse.button === Qt.MiddleButton) {
+									modelData.secondaryActivate()
+									return
+								}
+
+								if (mouse.button === Qt.RightButton) {
+									if (modelData.hasMenu) {
+										modelData.display(
+											root,
+											panelRow.x + trayItem.x,
+											panelRow.y + trayItem.y + trayItem.height
+										)
+									} else {
+										modelData.secondaryActivate()
+									}
+
+									return
+								}
+
+								if (modelData.onlyMenu && modelData.hasMenu) {
+									modelData.display(
+										root,
+										panelRow.x + trayItem.x,
+										panelRow.y + trayItem.y + trayItem.height
+									)
+									return
+								}
+
+								modelData.activate()
+							}
+						}
+					}
+				}
+			}
 
 		Item { width: 8 }
 		Text {
