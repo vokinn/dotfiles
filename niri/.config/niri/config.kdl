@@ -47,6 +47,8 @@ output "DP-1" {
 cursor {
 	xcursor-theme "Bibata-Modern-Classic"
 	xcursor-size 24
+	hide-when-typing
+	// hide-after-inactive-ms 2000
 }
 
 layout {
