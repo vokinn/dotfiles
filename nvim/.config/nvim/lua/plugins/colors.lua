@@ -1,8 +1,9 @@
-local dataFilePath = vim.fn.stdpath("data") .. "/colors" -- Use forward slash
+-- ts sucks ill rewrite all of it later
+local dataFilePath = vim.fn.stdpath("data") .. "/colors" 
 
 local data = {
-	default = "dracula",
-	background = "light",
+	default = "gruvbox-material",
+	background = "dark",
 }
 
 local function applyColors(color, mode)
@@ -22,6 +23,14 @@ function ColorMyPencils(color, mode)
 
 	vim.opt.cursorlineopt = "line"
 
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+	vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFFFFF", bg = "none", bold = true })
+
+	vim.api.nvim_set_hl(0, "DiagnosticSignError", { bg = "none" })
+	vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { bg = "none" })
+	vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { bg = "none" })
+	vim.api.nvim_set_hl(0, "DiagnosticSignHint", { bg = "none" })
 
 	local file = io.open(dataFilePath, "w+")
 	if file then
