@@ -1,5 +1,5 @@
 -- ts sucks ill rewrite all of it later
-local dataFilePath = vim.fn.stdpath("data") .. "/colors" 
+local dataFilePath = vim.fn.stdpath("data") .. "/colors"
 
 local data = {
 	default = "gruvbox-material",

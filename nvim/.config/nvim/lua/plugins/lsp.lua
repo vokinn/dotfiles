@@ -35,8 +35,8 @@ return {
 
 		vim.lsp.config("tinymist", {
 			settings = {
-				exportPdf = "onType", 
-				outputPath = "$root/out/$name", 
+				exportPdf = "onType",
+				outputPath = "$root/out/$name",
 				previewFeature = "enable",
 			},
 		})
