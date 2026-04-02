@@ -6,7 +6,7 @@ return {
 		require("typst-preview").update()
 	end,
 	opts = {
-		open_cmd = "cmd.exe /c start %s",
+		open_cmd = "xdg-open %s",
 		dependencies_bin = {
 			["tinymist"] = "tinymist",
 			["websocat"] = "websocat",
