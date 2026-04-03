@@ -8,6 +8,7 @@ return {
 			cpp = { "clang_format" },
 			nix = { "nixfmt" },
 			typst = { "typstyle" },
+			python = { "ruff" },
 		},
 
 		format_on_save = {
