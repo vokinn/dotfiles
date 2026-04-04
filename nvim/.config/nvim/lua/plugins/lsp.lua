@@ -23,6 +23,7 @@ return {
 		vim.lsp.enable("nixd")
 		vim.lsp.enable("tinymist")
 		vim.lsp.enable("pyright")
+		vim.lsp.enable("ocamllsp")
 
 		vim.lsp.config("*", {
 			capabilities = {

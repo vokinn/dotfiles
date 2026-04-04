@@ -9,6 +9,7 @@ return {
 			nix = { "nixfmt" },
 			typst = { "typstyle" },
 			python = { "ruff" },
+			ocaml = { "ocamlformat" },
 		},
 
 		format_on_save = {
